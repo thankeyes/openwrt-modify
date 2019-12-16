@@ -21,8 +21,8 @@ name=$2
 [ -z $2 ] && name='new'
 sudo $MKSQSHFS4 ./squashfs-root ./newsecondchunk.bin -nopad -noappend -root-owned -comp xz -Xpreset 9 -Xe -Xlc 0 -Xlp 2 -Xpb 2 -b 256k -processors 1
 sudo chown $USER ./newsecondchunk.bin
-cat kernel.bin newsecondchunk.bin > $name\_$(date "+%Y-%m-%d_%H%M%S").bin
-$PADJFFS2 $name\_$(date "+%Y-%m-%d_%H%M%S").bin
+cat kernel.bin newsecondchunk.bin > $name\_$(date "+%Y-%m-%d_%H").bin
+$PADJFFS2 $name\_$(date "+%Y-%m-%d_%H").bin
 rm newsecondchunk.bin
 ;;
 'clean'|'C')
